@@ -25,8 +25,10 @@ namespace Dodawanko
             Console.WriteLine("Prosze wpisac druga liczbe: ");
             Numbers SecondNumber = new Numbers();
             int SecondNum = SecondNumber.TakeNumber(Num);
-            Equastions End = new Equastions();
-            End.Counting(FirstNum, SecondNum, Opera);
+
+            IDzialania end = new Equastions();
+            
+            end.Dzialanie(FirstNum, SecondNum, Opera);
 
         }
     }
@@ -71,7 +73,7 @@ namespace Dodawanko
             return Num;
         }
     }
-    class Equastions
+    class Equastions : IDzialania
     {
 
         public string Oper(string Operator)
@@ -98,26 +100,35 @@ namespace Dodawanko
             } while (exit != "exit");
             return Operator;
         }
+        public int Dzialanie(int FirstNum,int SecondNum,string Operator)
 
-        public void Counting(int FirstNum, int SecondNum, string Operator)
         {
-            int wynik;
+            int Wynik=0;
+
             if (Operator.Equals("+"))
             {
-                wynik = FirstNum + SecondNum;
-                Console.WriteLine("Wynik Odejmowania : " + wynik + " ");
-                Console.WriteLine("Prosze nacisnac dowolny klawisz by zakonczyc");
+                Wynik = FirstNum + SecondNum;
+                Console.WriteLine("Wynik działania to: " + Wynik + "");
                 Console.ReadKey();
 
             }
             else if (Operator.Equals("-"))
 
             {
-                wynik = FirstNum - SecondNum;
-                Console.WriteLine("Wynik Odejmowania : " + wynik + " ");
-                Console.WriteLine("Prosze nacisnac dowolny klawisz by zakonczyc");
+
+                Wynik = FirstNum - SecondNum;
+                Console.WriteLine("Wynik działania to: " + Wynik + "");
                 Console.ReadKey();
             }
+            return Wynik;
+      
         }
+
+        }
+    interface IDzialania
+    {
+        int Dzialanie(int FirstNum, int SecondNum, String Operator);
     }
 }
+    
+
