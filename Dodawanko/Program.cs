@@ -14,20 +14,16 @@ namespace Dodawanko
             string Operator = "";
 
             Console.WriteLine("Witamy w DodawaczoOdejmowaczu");
-            Console.WriteLine("Prosze wpisac Pierwsza liczbe: ");
-            Numbers FirstNumber = new Numbers();
-            int FirstNum =FirstNumber.TakeNumber(Num);
-            Console.WriteLine("Prosze nacisnac Operatora Dzialania: ");
-            Console.WriteLine("-");
-            Console.WriteLine("+");
+            
+            Numbers Number = new Numbers();
+            int FirstNum =Number.TakeNumber(Num);
+            
             Equastions Op = new Equastions();
             string Opera = Op.Oper(Operator);
-            Console.WriteLine("Prosze wpisac druga liczbe: ");
-            Numbers SecondNumber = new Numbers();
-            int SecondNum = SecondNumber.TakeNumber(Num);
+           
+            int SecondNum = Number.TakeNumber(Num);
 
             IDzialania end = new Equastions();
-            
             end.Dzialanie(FirstNum, SecondNum, Opera);
 
         }
@@ -38,13 +34,12 @@ namespace Dodawanko
         String con = "";
 
         public int TakeNumber(int Num)
-
         {
+            Console.WriteLine("Prosze wpisac liczbe: ");
             do
             {
                 try
                 {
-
                     Number = Console.ReadLine();
                     Num = int.Parse(Number);
                     con = "wkoncu";
@@ -79,7 +74,9 @@ namespace Dodawanko
         public string Oper(string Operator)
         {
             string exit = "";
-            
+            Console.WriteLine("Prosze nacisnac Operatora Dzialania: ");
+            Console.WriteLine("-");
+            Console.WriteLine("+");
             do
             {
                 Operator = Console.ReadLine();
