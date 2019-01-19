@@ -13,7 +13,7 @@ namespace Dodawanko
             int Num = 0;
             string Operator = "";
 
-            Console.WriteLine("Witamy w DodawaczoOdejmowaczu");
+            Console.WriteLine("Witamy w DodawaczoOdejmowaczuMnozaczu");
             
             Numbers Number = new Numbers();
             int FirstNum =Number.TakeNumber(Num);
@@ -77,22 +77,28 @@ namespace Dodawanko
             Console.WriteLine("Prosze nacisnac Operatora Dzialania: ");
             Console.WriteLine("-");
             Console.WriteLine("+");
+            Console.WriteLine("*");
             do
             {
                 Operator = Console.ReadLine();
                 if (Operator.Equals("+"))
                 {
                     exit = "exit";
-                    return Operator ="+";
+                    return Operator = "+";
                 }
                 else if (Operator.Equals("-"))
                 {
                     exit = "exit";
-                    return Operator ="-";
+                    return Operator = "-";
+                }
+                else if (Operator.Equals("*"))
+                {
+                    exit = "exit";
+                    return Operator = "*";
                 }
                 else
                 {
-                    Console.WriteLine("Niepoprawny wybor, wybierz + lub -");
+                    Console.WriteLine("Niepoprawny wybor, wybierz +,- lub * ");
                 }
             } while (exit != "exit");
             return Operator;
@@ -114,6 +120,12 @@ namespace Dodawanko
             {
 
                 Wynik = FirstNum - SecondNum;
+                Console.WriteLine("Wynik działania to: " + Wynik + "");
+                Console.ReadKey();
+            }
+            else if (Operator.Equals("*"))
+            {
+                Wynik = FirstNum * SecondNum;
                 Console.WriteLine("Wynik działania to: " + Wynik + "");
                 Console.ReadKey();
             }
